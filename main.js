@@ -23,13 +23,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function USDToEUR(amount) {
     // return currencyRatioVNDtoUSD.toFixed(2);
-    return formatCurrency('en-US',"USD",(amount/currencyRatioUSDtoEUR).toFixed(2))
+    return formatCurrency('de-DE',"EUR",(amount/currencyRatioUSDtoEUR).toFixed(2))
   }
   function EURToUSD(amount) {
     // return (currencyRatioVNDtoUSD / amount).toFixed(2)
     
 
-    return formatCurrency('de-DE',"EUR",currencyRatioUSDtoEUR.toFixed(2)*amount)
+    return formatCurrency('en-US',"USD",currencyRatioUSDtoEUR.toFixed(2)*amount)
   }
 
 
