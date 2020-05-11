@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function USDToVND(amount) {
     // return currencyRatioVNDtoUSD.toFixed(2);
-    return formatCurrency('vi',"VND",currencyRatioVNDtoUSD.toFixed(2))
+    return formatCurrency('vi',"VND",currencyRatioVNDtoUSD.toFixed(2)*amount)
   }
   function VNDToUSD(amount) {
     // return (currencyRatioVNDtoUSD / amount).toFixed(2)
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // return (currencyRatioVNDtoUSD / amount).toFixed(2)
     
 
-    return formatCurrency('de-DE',"EUR",currencyRatioUSDtoEUR.toFixed(2))
+    return formatCurrency('de-DE',"EUR",currencyRatioUSDtoEUR.toFixed(2)*amount)
   }
 
 
@@ -37,7 +37,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   function EURToVND(amount) {
     // return currencyRatioVNDtoUSD.toFixed(2);
-    return formatCurrency('vi',"VND",currencyRatioVNDtoEUR.toFixed(2))
+    return formatCurrency('vi',"VND",currencyRatioVNDtoEUR.toFixed(2)*amount)
   }
   function VNDToEUR(amount) {
     // return (currencyRatioVNDtoUSD / amount).toFixed(2)
@@ -63,14 +63,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     var result="";
     currency1===currency2 ?result="Currency 1 is the same as Currency 2 :(( Pls re-select. Thank u !" :""
-    currency1==="USD" && currency2==="VND" ? result=(`${amountInput} ${currency1} To ${currency2} is ${USDToVND(amountInput)}`) :""
-    currency1==="VND" && currency2==="USD" ? result=(`${amountInput} ${currency1} To ${currency2} is ${VNDToUSD(amountInput)}`) :""
+    currency1==="USD" && currency2==="VND" ? result=(`${amountInput} ${currency1} to ${currency2} is ${USDToVND(amountInput)}`) :""
+    currency1==="VND" && currency2==="USD" ? result=(`${amountInput} ${currency1} to ${currency2} is ${VNDToUSD(amountInput)}`) :""
 
-    currency1==="EUR" && currency2==="USD" ? result=(`${amountInput} ${currency1} To ${currency2} is ${EURToUSD(amountInput)}`) :""
-    currency1==="USD" && currency2==="EUR" ? result=(`${amountInput} ${currency1} To ${currency2} is ${USDToEUR(amountInput)}`) :""
+    currency1==="EUR" && currency2==="USD" ? result=(`${amountInput} ${currency1} to ${currency2} is ${EURToUSD(amountInput)}`) :""
+    currency1==="USD" && currency2==="EUR" ? result=(`${amountInput} ${currency1} to ${currency2} is ${USDToEUR(amountInput)}`) :""
 
-    currency1==="EUR" && currency2==="VND" ? result=(`${amountInput} ${currency1} To ${currency2} is ${EURToVND(amountInput)}`) :""
-    currency1==="VND" && currency2==="EUR" ? result=(`${amountInput} ${currency1} To ${currency2} is ${VNDToEUR(amountInput)}`) :""
+    currency1==="EUR" && currency2==="VND" ? result=(`${amountInput} ${currency1} to ${currency2} is ${EURToVND(amountInput)}`) :""
+    currency1==="VND" && currency2==="EUR" ? result=(`${amountInput} ${currency1} to ${currency2} is ${VNDToEUR(amountInput)}`) :""
 
     document.getElementById("demo").innerHTML = result;
   })
