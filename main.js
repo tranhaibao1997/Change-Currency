@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', (event) => {
   const currencyRatioVNDtoUSD = 23388.85;
-  const currencyRatioVNDtoKRW = 19.13;
+  const currencyRatioUSDtoEUR = 1.08;
   const currencyRatioVNDtoEUR=25321.21;
 
   function formatCurrency(type1,type2, value) {
@@ -21,13 +21,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
   }
 
 
-  function KRWToVND(amount) {
+  function USDToEUR(amount) {
     // return currencyRatioVNDtoUSD.toFixed(2);
-    return formatCurrency('vi',"VND",currencyRatioVNDtoKRW.toFixed(2))
+    return formatCurrency('en-US',"USD",(amount/currencyRatioUSDtoEUR).toFixed(2))
   }
-  function VNDToKRW(amount) {
+  function EURToUSD(amount) {
     // return (currencyRatioVNDtoUSD / amount).toFixed(2)
-    return formatCurrency('ko',"WON",(amount/currencyRatioVNDtoKRW).toFixed(2))
+    
+
+    return formatCurrency('de-DE',"EUR",currencyRatioUSDtoEUR.toFixed(2))
   }
 
 
@@ -64,8 +66,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     currency1==="USD" && currency2==="VND" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${USDToVND(amountInput)}`) :""
     currency1==="VND" && currency2==="USD" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${VNDToUSD(amountInput)}`) :""
 
-    // currency1==="KRW" && currency2==="VND" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${USDToVND(amountInput)}`) :""
-    // currency1==="VND" && currency2==="USD" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${VNDToUSD(amountInput)}`) :""
+    currency1==="EUR" && currency2==="USD" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${EURToUSD(amountInput)}`) :""
+    currency1==="USD" && currency2==="EUR" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${USDToEUR(amountInput)}`) :""
 
     currency1==="EUR" && currency2==="VND" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${EURToVND(amountInput)}`) :""
     currency1==="VND" && currency2==="EUR" ? console.log(`${amountInput} from ${currency1} To ${currency2} is ${VNDToEUR(amountInput)}`) :""
