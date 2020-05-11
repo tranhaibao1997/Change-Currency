@@ -63,14 +63,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
     
     var result="";
     currency1===currency2 ?result="Currency 1 is the same as Currency 2 :(( Pls re-select. Thank u !" :""
-    currency1==="USD" && currency2==="VND" ? result=(`${amountInput} from ${currency1} To ${currency2} is ${USDToVND(amountInput)}`) :""
-    currency1==="VND" && currency2==="USD" ? result=(`${amountInput} from ${currency1} To ${currency2} is ${VNDToUSD(amountInput)}`) :""
+    currency1==="USD" && currency2==="VND" ? result=(`${amountInput} ${currency1} To ${currency2} is ${USDToVND(amountInput)}`) :""
+    currency1==="VND" && currency2==="USD" ? result=(`${amountInput} ${currency1} To ${currency2} is ${VNDToUSD(amountInput)}`) :""
 
-    currency1==="EUR" && currency2==="USD" ? result=(`${amountInput} from ${currency1} To ${currency2} is ${EURToUSD(amountInput)}`) :""
-    currency1==="USD" && currency2==="EUR" ? result=(`${amountInput} from ${currency1} To ${currency2} is ${USDToEUR(amountInput)}`) :""
+    currency1==="EUR" && currency2==="USD" ? result=(`${amountInput} ${currency1} To ${currency2} is ${EURToUSD(amountInput)}`) :""
+    currency1==="USD" && currency2==="EUR" ? result=(`${amountInput} ${currency1} To ${currency2} is ${USDToEUR(amountInput)}`) :""
 
-    currency1==="EUR" && currency2==="VND" ? result=(`${amountInput} from ${currency1} To ${currency2} is ${EURToVND(amountInput)}`) :""
-    currency1==="VND" && currency2==="EUR" ? result=(`${amountInput} from ${currency1} To ${currency2} is ${VNDToEUR(amountInput)}`) :""
+    currency1==="EUR" && currency2==="VND" ? result=(`${amountInput} ${currency1} To ${currency2} is ${EURToVND(amountInput)}`) :""
+    currency1==="VND" && currency2==="EUR" ? result=(`${amountInput} ${currency1} To ${currency2} is ${VNDToEUR(amountInput)}`) :""
 
     document.getElementById("demo").innerHTML = result;
   })

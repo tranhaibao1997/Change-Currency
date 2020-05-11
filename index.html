@@ -1,26 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="./main.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/a8c4c24db6.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <input id="amountInput" type="text" placeholder="Enter number" />
-    <select id="currency1">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="VND">VND</option>
-    </select>
-    <button id="exchange">><</button>
-    <select id="currency2">
-      <option value="USD">USD</option>
-      <option value="EUR">EUR</option>
-      <option value="VND">VND</option>
-    </select>
-    <button id="convertCurrencyBtn">Convert</button>
-    <p id="demo"></p>
+    <div class="convert-wrapper">
+        <h1>XE Currency Converter</h1>
+        <div class="content">
+            <div class="amount-section">
+                <p style="color:white;font-size: 30px;">Amount</p>
+                <input id="amountInput" type="text" placeholder="Enter number" />
+            </div>
+            <div class="Currency-section">
+                <p style="color:white;font-size: 30px;">From</p>
+                <select id="currency1">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="VND">VND</option>
+                </select>
+            </div>
+
+            <i class="fas fa-sync-alt" id="exchange"></i>
+            <div class="Currency-section">
+                <p style="color:white;font-size: 30px;">To</p>
+                <select id="currency2">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="VND">VND</option>
+                </select>
+            </div>
+            <button id="convertCurrencyBtn"><i class="fas fa-chevron-right"></i></button>
+            <p id="demo"></p>
+        </div>
+
+
+    </div>
+
 </body>
+
 </html>
