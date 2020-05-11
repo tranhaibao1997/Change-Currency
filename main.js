@@ -5,8 +5,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     EUR: 0.92,
     KRW: 1223.56,
     USD: 1,
-    JPY:107.64,
-    CNY:7.10
+    JPY: 107.64,
+    CNY: 7.10
 
   }
 
@@ -27,16 +27,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
     document.getElementById("currency2").value = currency1
   })
 
-  
+
+
+
   const convertBtn = document.getElementById("convertCurrencyBtn");
   convertBtn.addEventListener("click", () => {
     var amountInput = document.getElementById("amountInput").value;
-    amountInput ?"" :alert("U must enter a number to convert");
-    const fromValue = document.getElementById("currency1").value;
-    const toValue = document.getElementById("currency2").value;
-    const result = ((USD[toValue] / USD[fromValue]) * amountInput).toFixed(2)
-    const notification = showResult(toValue, result)
-    document.getElementById("demo").innerHTML = `${amountInput} ${fromValue}=${notification} ${toValue}` ;
+    amountInput ? "" : alert("U must enter a number to convert");
+    
+      amountInput=parseInt(amountInput);
+      const fromValue = document.getElementById("currency1").value;
+      const toValue = document.getElementById("currency2").value;
+      const result = ((USD[toValue] / USD[fromValue]) * parseInt(amountInput)).toFixed(2)
+      const notification = showResult(toValue, result)
+      document.getElementById("demo").innerHTML = `${parseInt(amountInput)} ${fromValue}=${notification} ${toValue}`;
+    
+
 
 
   })
@@ -49,7 +55,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     toValue === "JPY" ? convertedValue = formatCurrency('ja-JP', "JPY", result) : ""
     toValue === "CNY" ? convertedValue = formatCurrency('zh-CN', "CNY", result) : ""
     return convertedValue;
-  } 
+  }
 
 
 
