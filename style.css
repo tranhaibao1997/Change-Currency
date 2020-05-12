@@ -93,3 +93,21 @@
     font-size: 30px;
     color: white;
 }
+
+#myList
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+}
+#myList  img
+{
+    width: 300px;
+    height: 200px;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 30px;
+    margin-right: 30px;
+}
