@@ -83,25 +83,50 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   var coinChangeBtn = document.getElementById("coinChangeBtn")
   coinChangeBtn.addEventListener("click", () => {
-    document.getElementById("myList").innerHTML=""
-    let temp=[]
+    document.getElementById("myList").innerHTML = ""
+    let temp = []
     const coinInput = document.getElementById("coinInput").value
     temp = foo(parseInt(coinInput));
-    temp.filter(elm => elm === 500000).map((elm) => { appendImg(500000) })
-    temp.filter(elm => elm === 200000).map((elm) => { appendImg(200000) })
-    temp.filter(elm => elm === 100000).map((elm) => { appendImg(100000) })
-    temp.filter(elm => elm === 50000).map((elm) => { appendImg(50000) })
-    temp.filter(elm => elm === 20000).map((elm) => { appendImg(20000) })
-    temp.filter(elm => elm === 10000).map((elm) => { appendImg(10000) })
-    temp.filter(elm => elm === 5000).map((elm) => { appendImg(5000) })
-    temp.filter(elm => elm === 2000).map((elm) => { appendImg(2000) })
-    temp.filter(elm => elm === 1000).map((elm) => { appendImg(1000) })
-    
+
+    //turn temp array to object
+    let obj = {};
+    for (let i = 0; i < temp.length; i++) {
+      let value = temp[i];
+      if (!obj[value]) {
+        obj[value] = 1;
+      } else {
+        obj[value]++;
+      }
+    }
+
+    obj[500000] ? appendImg(500000, obj[500000]) : ""
+    obj[200000] ? appendImg(200000, obj[200000]) : ""
+    obj[100000] ? appendImg(100000, obj[100000]) : ""
+    obj[50000] ? appendImg(50000, obj[50000]) : ""
+    obj[20000] ? appendImg(20000, obj[20000]) : ""
+    obj[10000] ? appendImg(10000, obj[10000]) : ""
+    obj[5000] ? appendImg(5000, obj[5000]) : ""
+    obj[2000] ? appendImg(2000, obj[2000]) : ""
+    obj[1000] ? appendImg(1000, obj[1000]) : ""
+
+
+
+
+    // temp.filter(elm => elm === 500000).map((elm) => { appendImg(500000) })
+    // temp.filter(elm => elm === 200000).map((elm) => { appendImg(200000) })
+    // temp.filter(elm => elm === 100000).map((elm) => { appendImg(100000) })
+    // temp.filter(elm => elm === 50000).map((elm) => { appendImg(50000) })
+    // temp.filter(elm => elm === 20000).map((elm) => { appendImg(20000) })
+    // temp.filter(elm => elm === 10000).map((elm) => { appendImg(10000) })
+    // temp.filter(elm => elm === 5000).map((elm) => { appendImg(5000) })
+    // temp.filter(elm => elm === 2000).map((elm) => { appendImg(2000) })
+    // temp.filter(elm => elm === 1000).map((elm) => { appendImg(1000) })
+
 
 
   })
 
-  function appendImg(value) {
+  function appendImg(value, number) {
 
     let imgLink = "";
     var img = new Image();
@@ -115,7 +140,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
     value === 2000 ? imgLink = "https://upload.wikimedia.org/wikipedia/vi/5/57/Gi%E1%BA%A5y_b%E1%BA%A1c_2000.jpg" : ""
     value === 1000 ? imgLink = "https://upload.wikimedia.org/wikipedia/vi/9/9f/%C4%90%E1%BB%93ng_b%E1%BA%A1c_1000_%C4%91%E1%BB%93ng.jpeg" : ""
     img.src = imgLink;
-    document.getElementById("myList").appendChild(img);
+    var node = document.createElement("p");                 
+    var textnode = document.createTextNode(number); 
+          // Create a text node
+    node.appendChild(textnode);    
+    var div = document.createElement("div");          
+    div.appendChild(img)                      
+    div.appendChild(node)  
+    document.getElementById("myList").appendChild(div);
+  
+    
   }
 
 

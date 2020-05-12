@@ -102,6 +102,20 @@
     margin: 0 auto;
     justify-content: center;
 }
+#myList div
+{
+    display: flex;
+    margin-right: 30px;
+}
+#myList div p
+{
+    font-size: 50px;
+    color: white;
+}
+#myList div p::before
+{
+    content: "X";
+}
 #myList  img
 {
     width: 300px;
