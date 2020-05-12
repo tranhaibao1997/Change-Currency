@@ -15,7 +15,7 @@
     align-items: center;
     flex-wrap: wrap;
 }
-#amountInput
+#amountInput,#coinInput
 {
     box-sizing: border-box;
     color: rgb(0, 34, 114);
@@ -52,7 +52,7 @@
     margin-top: 90px;
     margin-right: 20px;
 }
-#convertCurrencyBtn
+#convertCurrencyBtn,#coinChangeBtn
 {
     height: 60px;
     max-width: 60px;
@@ -81,7 +81,7 @@
     border-color: initial;
     border-image: initial;
 }
-#demo
+#demo,#demo2
 {
     width: 100%;
     text-align: center;

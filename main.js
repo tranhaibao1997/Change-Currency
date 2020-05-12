@@ -34,14 +34,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
   convertBtn.addEventListener("click", () => {
     var amountInput = document.getElementById("amountInput").value;
     amountInput ? "" : alert("U must enter a number to convert");
-    
-      amountInput=parseInt(amountInput);
-      const fromValue = document.getElementById("currency1").value;
-      const toValue = document.getElementById("currency2").value;
-      const result = ((USD[toValue] / USD[fromValue]) * parseInt(amountInput)).toFixed(2)
-      const notification = showResult(toValue, result)
-      document.getElementById("demo").innerHTML = `${parseInt(amountInput)} ${fromValue}=${notification} ${toValue}`;
-    
+
+    amountInput = parseInt(amountInput);
+    const fromValue = document.getElementById("currency1").value;
+    const toValue = document.getElementById("currency2").value;
+    const result = ((USD[toValue] / USD[fromValue]) * parseInt(amountInput)).toFixed(2)
+    const notification = showResult(toValue, result)
+    document.getElementById("demo").innerHTML = `${parseInt(amountInput)} ${fromValue}=${notification} ${toValue}`;
+
 
 
 
@@ -56,6 +56,35 @@ window.addEventListener('DOMContentLoaded', (event) => {
     toValue === "CNY" ? convertedValue = formatCurrency('zh-CN', "CNY", result) : ""
     return convertedValue;
   }
+
+
+
+
+
+var moneyType = [1000,2000,5000, 10000, 20000, 50000, 100000,200000,500000];
+
+
+
+function foo(num){
+    var index = moneyType.length - 1;
+    var splits = [];
+    while (num >= moneyType[0]){
+        if (num >= moneyType[index]){
+           num -= moneyType[index];
+           splits.push(moneyType[index]);
+        }else{
+            index--;
+        }
+    }
+    return splits;
+}
+var coinChangeBtn=document.getElementById("coinChangeBtn")
+coinChangeBtn.addEventListener("click",()=>{
+  const coinInput=document.getElementById("coinInput").value
+  document.getElementById("demo2").innerHTML = `${foo(parseInt(coinInput))}`;
+})
+
+
 
 
 
