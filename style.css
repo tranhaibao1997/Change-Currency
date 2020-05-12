@@ -31,6 +31,10 @@
     border-radius: 10px;
     margin-right: 20px;
 }
+#coinInput
+{
+    width: 400px;
+}
 #currency1, #currency2
 {
     background-color: #fff;
