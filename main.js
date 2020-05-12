@@ -61,28 +61,62 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-var moneyType = [1000,2000,5000, 10000, 20000, 50000, 100000,200000,500000];
+  var moneyType = [1000, 2000, 5000, 10000, 20000, 50000, 100000, 200000, 500000];
 
 
 
-function foo(num){
+  function foo(num) {
     var index = moneyType.length - 1;
     var splits = [];
-    while (num >= moneyType[0]){
-        if (num >= moneyType[index]){
-           num -= moneyType[index];
-           splits.push(moneyType[index]);
-        }else{
-            index--;
-        }
+    while (num >= moneyType[0]) {
+      if (num >= moneyType[index]) {
+        num -= moneyType[index];
+        splits.push(moneyType[index]);
+      } else {
+        index--;
+      }
     }
     return splits;
-}
-var coinChangeBtn=document.getElementById("coinChangeBtn")
-coinChangeBtn.addEventListener("click",()=>{
-  const coinInput=document.getElementById("coinInput").value
-  document.getElementById("demo2").innerHTML = `${foo(parseInt(coinInput))}`;
-})
+  }
+
+
+
+  var coinChangeBtn = document.getElementById("coinChangeBtn")
+  coinChangeBtn.addEventListener("click", () => {
+    document.getElementById("myList").innerHTML=""
+    let temp=[]
+    const coinInput = document.getElementById("coinInput").value
+    temp = foo(parseInt(coinInput));
+    temp.filter(elm => elm === 500000).map((elm) => { appendImg(500000) })
+    temp.filter(elm => elm === 200000).map((elm) => { appendImg(200000) })
+    temp.filter(elm => elm === 100000).map((elm) => { appendImg(100000) })
+    temp.filter(elm => elm === 50000).map((elm) => { appendImg(50000) })
+    temp.filter(elm => elm === 20000).map((elm) => { appendImg(20000) })
+    temp.filter(elm => elm === 10000).map((elm) => { appendImg(10000) })
+    temp.filter(elm => elm === 5000).map((elm) => { appendImg(5000) })
+    temp.filter(elm => elm === 2000).map((elm) => { appendImg(2000) })
+    temp.filter(elm => elm === 1000).map((elm) => { appendImg(1000) })
+    
+
+
+  })
+
+  function appendImg(value) {
+
+    let imgLink = "";
+    var img = new Image();
+    value === 500000 ? imgLink = "https://3.bp.blogspot.com/-XkkbFyrCKWg/Vn-Kthj5VlI/AAAAAAAAB4M/CJ0SJW2JkGU/s1600/v500rb1.jpg" : ""
+    value === 200000 ? imgLink = "https://i.pinimg.com/originals/51/0b/b7/510bb7834f1b2e74bc4195f4d0f09dae.jpg" : ""
+    value === 100000 ? imgLink = "https://scootersaigontour.com/wp-content/uploads/2019/04/front-of-100000-VND-note.jpg" : ""
+    value === 50000 ? imgLink = "https://upload.wikimedia.org/wikipedia/vi/thumb/2/28/%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg/300px-%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg" : ""
+    value === 20000 ? imgLink = "https://image2.tienphong.vn/w665/Uploaded/2020/xumrvjpnb/215/54215.jpg" : ""
+    value === 10000 ? imgLink = "https://art-hanoi.com/collection/vnpaper/vn-p119a-b.jpg" : ""
+    value === 5000 ? imgLink = "https://upload.wikimedia.org/wikipedia/vi/7/7c/%C4%90%E1%BB%93ng_b%E1%BA%A1c_5000_%C4%91%E1%BB%93ng.jpg" : ""
+    value === 2000 ? imgLink = "https://upload.wikimedia.org/wikipedia/vi/5/57/Gi%E1%BA%A5y_b%E1%BA%A1c_2000.jpg" : ""
+    value === 1000 ? imgLink = "https://upload.wikimedia.org/wikipedia/vi/9/9f/%C4%90%E1%BB%93ng_b%E1%BA%A1c_1000_%C4%91%E1%BB%93ng.jpeg" : ""
+    img.src = imgLink;
+    document.getElementById("myList").appendChild(img);
+  }
 
 
 
